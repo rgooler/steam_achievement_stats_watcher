@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Main</class>
- <widget class="QMainWindow" name="Main">
+ <widget class="QDialog" name="Main">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>608</width>
-    <height>496</height>
+    <width>511</width>
+    <height>248</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,15 +17,23 @@
    <iconset>
     <normaloff>icon.ico</normaloff>icon.ico</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="centralwidget" native="true">
    <property name="enabled">
     <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>505</width>
+     <height>240</height>
+    </rect>
    </property>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>210</y>
+      <x>370</x>
+      <y>110</y>
       <width>75</width>
       <height>23</height>
      </rect>
@@ -34,30 +42,45 @@
      <string>PushButton</string>
     </property>
    </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>158</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
+     <item>
+      <widget class="QPushButton" name="AddGameButton">
+       <property name="text">
+        <string>Add Game</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ConfigureButton">
+       <property name="text">
+        <string>Configure</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QStatusBar" name="statusbar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>608</width>
-     <height>21</height>
+     <width>3</width>
+     <height>18</height>
     </rect>
    </property>
-   <widget class="QMenu" name="AddGame">
-    <property name="title">
-     <string>Add Game</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="Configure">
-    <property name="title">
-     <string>Configure</string>
-    </property>
-   </widget>
-   <addaction name="AddGame"/>
-   <addaction name="Configure"/>
-  </widget>
-  <widget class="QStatusBar" name="statusbar">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
      <horstretch>0</horstretch>
