@@ -15,7 +15,7 @@ class Ui_Configuration(object):
         Configuration.setMinimumSize(QtCore.QSize(239, 141))
         Configuration.setMaximumSize(QtCore.QSize(239, 141))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Configuration.setWindowIcon(icon)
         self.formLayoutWidget = QtWidgets.QWidget(Configuration)
         self.formLayoutWidget.setGeometry(QtCore.QRect(10, 10, 217, 74))

@@ -36,7 +36,7 @@ deploy:
   - provider: GitHub
     release: draft-v$(appveyor_build_version)
     auth_token:
-      secure: $GITHUB_TOKEN
+      secure: "CX6oVGywKQDDate+0y9tZ2OEmKtxBeKuf/7AMCXmFkLlQpREQt3tihO3oGdzChUU"
     artifact: "*.zip"
     draft: true
     prerelease: false
@@ -49,7 +49,7 @@ deploy:
   - provider: GitHub
     release: v$(appveyor_build_version)
     auth_token:
-      secure: $GITHUB_TOKEN
+      secure: "CX6oVGywKQDDate+0y9tZ2OEmKtxBeKuf/7AMCXmFkLlQpREQt3tihO3oGdzChUU"
     artifact: "*.zip"
     draft: false
     prerelease: true

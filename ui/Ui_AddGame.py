@@ -13,7 +13,7 @@ class Ui_AddGame(object):
         AddGame.setObjectName("AddGame")
         AddGame.resize(670, 381)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AddGame.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(AddGame)
         self.centralwidget.setObjectName("centralwidget")
