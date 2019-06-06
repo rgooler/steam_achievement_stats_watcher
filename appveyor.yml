@@ -36,19 +36,8 @@ deploy:
   - provider: GitHub
     release: draft-v$(appveyor_build_version)
     auth_token:
-      secure: "$(GITHUB_TOKEN)"
-    artifact: "$(PROJECT_NAME)-$(appveyor_build_version)-windows-32.zip"
-    draft: true
-    prerelease: false
-    on:
-      branch: master                 # release from master branch only
-      APPVEYOR_REPO_TAG: false
-
-  - provider: GitHub
-    release: draft-v$(appveyor_build_version)
-    auth_token:
-      secure: "$(GITHUB_TOKEN)"
-    artifact: "$(PROJECT_NAME)-$(appveyor_build_version)-windows-64.zip"
+      secure: $GITHUB_TOKEN
+    artifact: "*.zip"
     draft: true
     prerelease: false
     on:
@@ -60,19 +49,8 @@ deploy:
   - provider: GitHub
     release: v$(appveyor_build_version)
     auth_token:
-      secure: "$(GITHUB_TOKEN)"
-    artifact: "$(PROJECT_NAME)-$(appveyor_build_version)-windows-32.zip"
-    draft: false
-    prerelease: true
-    on:
-      branch: master                 # release from master branch only
-      APPVEYOR_REPO_TAG: true
-
-  - provider: GitHub
-    release: v$(appveyor_build_version)
-    auth_token:
-      secure: "$(GITHUB_TOKEN)"
-    artifact: "$(PROJECT_NAME)-$(appveyor_build_version)-windows-64.zip"
+      secure: $GITHUB_TOKEN
+    artifact: "*.zip"
     draft: false
     prerelease: true
     on:
