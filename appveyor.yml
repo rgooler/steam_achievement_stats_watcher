@@ -28,8 +28,7 @@ after_build:
   - ps: 7z a $env:PROJECT_NAME-$env:APPVEYOR_BUILD_VERSION-windows-$env:ARCH.zip .\dist\* LICENSE
 
 artifacts:
-    - path: "$env:PROJECT_NAME-*-windows-32.zip"
-    - path: "$env:PROJECT_NAME-*-windows-64.zip"
+    - path: "*.zip"
 
 deploy:
   ################################################################################
