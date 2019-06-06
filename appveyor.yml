@@ -5,7 +5,7 @@ clone_depth: 1
 environment:
     pack_dlls: 1
     PROJECT_NAME: "steam_achievement_stats_watcher"
-    GITHUB_TOKEN: "208TDvAq+KHsvan3IIpa1CyuzFxO7cw/0zMjSxogqBGbnkNUxQU6g6YUiekFAWRC"
+    GITHUB_TOKEN: "sW5nCWnCBEZdsffkC0hnmEVuBFvlkVCrj240mnpwOrDsBGfxj0gPcMsM1IYIUVya"
     matrix:
         - PYTHON: "C:\\Python37"
           ARCH: "32"
