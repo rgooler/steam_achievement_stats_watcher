@@ -32,11 +32,12 @@ artifacts:
 
 deploy:
   ################################################################################
-  # Release untagged versaions as drafts
-  - provider: GitHub
+  # Release untagged versions as drafts
+  - name: Github - draft releases
+    provider: GitHub
     release: draft-v$(appveyor_build_version)
     auth_token:
-      secure: "CX6oVGywKQDDate+0y9tZ2OEmKtxBeKuf/7AMCXmFkLlQpREQt3tihO3oGdzChUU"
+      secure: CX6oVGywKQDDate+0y9tZ2OEmKtxBeKuf/7AMCXmFkLlQpREQt3tihO3oGdzChUU
     artifact: "*.zip"
     draft: true
     prerelease: false
@@ -45,11 +46,12 @@ deploy:
       APPVEYOR_REPO_TAG: false
 
   ################################################################################
-  # Release tagged versaions as pre-release
-  - provider: GitHub
+  # Release tagged versions as pre-release
+  - name: Github - full releases
+    provider: GitHub
     release: v$(appveyor_build_version)
     auth_token:
-      secure: "CX6oVGywKQDDate+0y9tZ2OEmKtxBeKuf/7AMCXmFkLlQpREQt3tihO3oGdzChUU"
+      secure: CX6oVGywKQDDate+0y9tZ2OEmKtxBeKuf/7AMCXmFkLlQpREQt3tihO3oGdzChUU
     artifact: "*.zip"
     draft: false
     prerelease: true
