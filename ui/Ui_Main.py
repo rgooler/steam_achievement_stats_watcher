@@ -16,10 +16,11 @@ class Ui_Main(object):
         icon.addPixmap(QtGui.QPixmap("../icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Main.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(Main)
+        self.centralwidget.setEnabled(True)
         self.centralwidget.setObjectName("centralwidget")
-        self.treeView = QtWidgets.QTreeView(self.centralwidget)
-        self.treeView.setGeometry(QtCore.QRect(0, 0, 601, 451))
-        self.treeView.setObjectName("treeView")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(220, 210, 75, 23))
+        self.pushButton.setObjectName("pushButton")
         Main.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Main)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 608, 21))
@@ -46,6 +47,7 @@ class Ui_Main(object):
     def retranslateUi(self, Main):
         _translate = QtCore.QCoreApplication.translate
         Main.setWindowTitle(_translate("Main", "Steam Achievement Stats Watcher by Jippen"))
+        self.pushButton.setText(_translate("Main", "PushButton"))
         self.AddGame.setTitle(_translate("Main", "Add Game"))
         self.Configure.setTitle(_translate("Main", "Configure"))
 
