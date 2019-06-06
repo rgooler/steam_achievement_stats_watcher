@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>239</width>
-    <height>115</height>
+    <height>141</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>239</width>
+    <height>141</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>239</width>
+    <height>141</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Configuration</string>
@@ -22,8 +34,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>220</width>
-     <height>48</height>
+     <width>217</width>
+     <height>74</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="formLayout">
@@ -40,18 +52,28 @@
     <item row="0" column="1">
      <widget class="QLineEdit" name="ApiKey"/>
     </item>
-    <item row="1" column="0">
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="UpdateFrequency"/>
+    </item>
+    <item row="2" column="0">
      <widget class="QLabel" name="UpdateFrequencyLabel">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This value is how many seconds the app will wait between API calls to update steam stats. Too fast may result in temporary API Blocking.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string>Update Frequency</string>
+       <string>Update Interval</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="SteamID64Label">
+      <property name="text">
+       <string>Steam ID64</string>
       </property>
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QSpinBox" name="UpdateFrequency"/>
+     <widget class="QLineEdit" name="SteamID64"/>
     </item>
    </layout>
   </widget>
@@ -59,7 +81,7 @@
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>80</y>
+     <y>100</y>
      <width>156</width>
      <height>23</height>
     </rect>
