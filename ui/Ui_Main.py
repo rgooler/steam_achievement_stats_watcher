@@ -11,6 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Main(object):
     def setupUi(self, Main):
         Main.setObjectName("Main")
+        Main.setWindowModality(QtCore.Qt.WindowModal)
         Main.resize(511, 248)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -18,10 +19,12 @@ class Ui_Main(object):
         self.centralwidget = QtWidgets.QWidget(Main)
         self.centralwidget.setEnabled(True)
         self.centralwidget.setGeometry(QtCore.QRect(0, 0, 505, 240))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setObjectName("centralwidget")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(370, 110, 75, 23))
-        self.pushButton.setObjectName("pushButton")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 158, 25))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
@@ -35,6 +38,9 @@ class Ui_Main(object):
         self.ConfigureButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         self.ConfigureButton.setObjectName("ConfigureButton")
         self.horizontalLayout.addWidget(self.ConfigureButton)
+        self.treeView = QtWidgets.QTreeView(self.centralwidget)
+        self.treeView.setGeometry(QtCore.QRect(0, 30, 501, 211))
+        self.treeView.setObjectName("treeView")
         self.statusbar = QtWidgets.QStatusBar(Main)
         self.statusbar.setGeometry(QtCore.QRect(0, 0, 3, 18))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -50,7 +56,6 @@ class Ui_Main(object):
     def retranslateUi(self, Main):
         _translate = QtCore.QCoreApplication.translate
         Main.setWindowTitle(_translate("Main", "Steam Achievement Stats Watcher by Jippen"))
-        self.pushButton.setText(_translate("Main", "PushButton"))
         self.AddGameButton.setText(_translate("Main", "Add Game"))
         self.ConfigureButton.setText(_translate("Main", "Configure"))
 

@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Configuration</class>
  <widget class="QDialog" name="Configuration">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -54,10 +57,16 @@
     <item row="0" column="0">
      <widget class="QLabel" name="ApiKeyLabel">
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://steamcommunity.com/dev/apikey&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Get a steam web api key here&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string/>
       </property>
       <property name="text">
-       <string>Web API Key</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://steamcommunity.com/dev/apikey&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Web API Key&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::AutoText</enum>
+      </property>
+      <property name="openExternalLinks">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -65,10 +74,26 @@
      <widget class="QLineEdit" name="ApiKey"/>
     </item>
     <item row="2" column="1">
-     <widget class="QSpinBox" name="UpdateFrequency"/>
+     <widget class="QSpinBox" name="UpdateInterval">
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+      <property name="suffix">
+       <string> seconds</string>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>3600</number>
+      </property>
+      <property name="value">
+       <number>15</number>
+      </property>
+     </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QLabel" name="UpdateFrequencyLabel">
+     <widget class="QLabel" name="UpdateIntervalLabel">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This value is how many seconds the app will wait between API calls to update steam stats. Too fast may result in temporary API Blocking.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
@@ -85,7 +110,14 @@
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QLineEdit" name="SteamID64"/>
+     <widget class="QLineEdit" name="SteamID64">
+      <property name="inputMethodHints">
+       <set>Qt::ImhDigitsOnly</set>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>false</bool>
+      </property>
+     </widget>
     </item>
     <item row="3" column="1">
      <widget class="QDialogButtonBox" name="configButtonBox">

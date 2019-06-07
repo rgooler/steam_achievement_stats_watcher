@@ -11,6 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_AddGame(object):
     def setupUi(self, AddGame):
         AddGame.setObjectName("AddGame")
+        AddGame.setWindowModality(QtCore.Qt.WindowModal)
         AddGame.resize(400, 300)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
