@@ -1,4 +1,8 @@
-from steam_achievement_stats_watcher.GUI import GUI
+from steam_achievement_stats_watcher.Main import Main
 from steam_achievement_stats_watcher.Configuration import Configuration, Ui_Configuration
+from steam_achievement_stats_watcher.AddGame import AddGame, Ui_AddGame
 
-__all__ = ["GUI", "Configuration", "Ui_Configuration"]
+__all__ = ["Main",
+           "Configuration", "Ui_Configuration",
+           "AddGame", "Ui_AddGame"
+           ]

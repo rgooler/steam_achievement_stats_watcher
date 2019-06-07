@@ -10,6 +10,6 @@ if __name__ == "__main__":
     QCoreApplication.setApplicationName("Steam Achievement Stats Watcher")
 
     app = QApplication(sys.argv)
-    w = steam_achievement_stats_watcher.GUI()
+    w = steam_achievement_stats_watcher.Main()
     w.show()
     sys.exit(app.exec_())
