@@ -14,7 +14,7 @@ class Ui_AddGame(object):
         AddGame.setWindowModality(QtCore.Qt.WindowModal)
         AddGame.resize(400, 300)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         AddGame.setWindowIcon(icon)
 
         self.retranslateUi(AddGame)
