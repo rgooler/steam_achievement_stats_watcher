@@ -23,7 +23,7 @@ class Main(QDialog):
 
     def addgame_window(self):
         widget = steam_achievement_stats_watcher.AddGame(self)
-        dialog = ui.Ui_AddGame()
+        dialog = steam_achievement_stats_watcher.Ui_AddGame()
         dialog.setupUi(widget)
         widget.exec_()
         widget.show()
