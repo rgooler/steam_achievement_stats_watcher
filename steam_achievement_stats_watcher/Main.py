@@ -11,6 +11,8 @@ class Main(QDialog):
         self.main = Ui_Main()
         self.main.setupUi(self)
         self.show()
+        sd = steam_achievement_stats_watcher.steamdata()
+        sd.update()
 
     def config_window(self):
         widget = steam_achievement_stats_watcher.Configuration(self)

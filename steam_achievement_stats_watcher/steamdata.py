@@ -54,6 +54,14 @@ class steamdata(object):
             r = requests.get(url, params=params)
             return r.json()
 
+    def get_appid(self, name):
+        listOfKeys = [k for (k, value) in self.allgames.items() if value == name]
+        if len(listOfKeys) == 1:
+            return listOfKeys[0]
+        else:
+            print("Error: found multiple appids!")
+            return listOfKeys[0]
+
     def updater(self):
         self.load_games()
         counter = 0
@@ -92,11 +100,11 @@ class steamdata(object):
 
     def update(self):
         settings = QSettings()
-        url = "https://rgooler.github.io/steam_achievement_stats_watcher/data.json.zip"
+        url = f"https://rgooler.github.io/steam_achievement_stats_watcher/{self.__datafile}.zip"
         r = requests.head(url)
         if r.headers['etag'] != settings.value('etag', type=str):
             # Update available! Download it!
-            with open("data.json.zip", 'wb') as fd:
+            with open(f"{self.__datafile}.zip", 'wb') as fd:
                 for chunk in r.iter_content(chunk_size=128):
                     fd.write(chunk)
             # Save etag

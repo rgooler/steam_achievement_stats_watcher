@@ -9,8 +9,6 @@ if __name__ == "__main__":
     QCoreApplication.setOrganizationDomain("bullshit.website")
     QCoreApplication.setApplicationName("Steam Achievement Stats Watcher")
 
-    steam_achievement_stats_watcher.steamdata.update()
-
     app = QApplication(sys.argv)
     w = steam_achievement_stats_watcher.Main()
     w.show()

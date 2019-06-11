@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QDialog, QListWidget, QListWidgetItem
 import steam_achievement_stats_watcher
-from PyQt5.QtCore import QSettings
+from PyQt5.QtCore import QSettings, Qt
 import ui
 
 
@@ -20,19 +20,26 @@ class Ui_AddGame(ui.Ui_AddGame):
         # Setup game list
         self.games.setSortingEnabled(True)
         for appid, game in self.sd.usergames.items():
+            item = QListWidgetItem(game)
+            if str(appid) in self.sd.data.keys():
+                if self.sd.data[str(appid)]['hasStats'] is False:
+                    # Skip games with known no stats
+                    continue
+            # Now that all flags are set, add to the list
             self.games.addItem(game)
         self.games.currentItemChanged.connect(self.list_game_stats)
         self.games.show()
 
     def list_game_stats(self):
-        self.stats.addItem("Loading...")
-        self.stats.show()
         current_game = self.games.currentItem()
         try:
-            stats = self.sd.get_game_stats(current_game.text())
+            appid = self.sd.get_appid(current_game.text())
+            print(appid)
+            stats = self.sd.get_game_stats(appid)
             print(stats)
             self.stats.clear()
-            for stat in stats:
+            for stat in stats['playerstats']['stats']:
+                print(stat)
                 item = QListWidgetItem(stat['name'])
                 item.setSelected(True)
                 self.stats.addItem(item)
