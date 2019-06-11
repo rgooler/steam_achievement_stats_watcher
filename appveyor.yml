@@ -25,7 +25,7 @@ build_script:
     - "%PYTHON%\\Scripts\\pyinstaller --onefile --icon icon.ico main.py"
 
 after_build:
-  - ps: 7z a $env:PROJECT_NAME-$env:APPVEYOR_BUILD_VERSION-windows-$env:ARCH.zip .\dist\* LICENSE
+  - ps: 7z a $env:PROJECT_NAME-$env:APPVEYOR_BUILD_VERSION-windows-$env:ARCH.zip .\dist\* LICENSE data.json.zip
 
 artifacts:
     - path: "*.zip"

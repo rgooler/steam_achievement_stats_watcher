@@ -89,3 +89,15 @@ class steamdata(object):
     def save(self):
         with open(self.__datafile, "w") as fh:
             json.dump(self.data, fh, indent=2)
+
+    def update(self):
+        settings = QSettings()
+        url = "https://rgooler.github.io/steam_achievement_stats_watcher/data.json.zip"
+        r = requests.head(url)
+        if r.headers['etag'] != settings.value('etag', type=str):
+            # Update available! Download it!
+            with open("data.json.zip", 'wb') as fd:
+                for chunk in r.iter_content(chunk_size=128):
+                    fd.write(chunk)
+            # Save etag
+            settings.setValue('etag', r.headers['etag'])
