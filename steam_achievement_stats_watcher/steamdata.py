@@ -1,15 +1,25 @@
 import requests
 from PyQt5.QtCore import QSettings
 from PyQt5.QtCore import QCoreApplication
+import time
+import os.path
+import json
 
 
 class steamdata(object):
     allgames = {}
     usergames = {}
+    data = None
+    __datafile = "data.json"
 
     def load_games(self):
-        self.__get_all_steam_games()
-        self.__get_users_games()
+        if self.allgames == {}:
+            self.__get_all_steam_games()
+        if self.usergames == {}:
+            self.__get_users_games()
+        if self.data is None:
+            with open(self.__datafile) as fh:
+                self.data = json.load(fh)
 
     def __get_all_steam_games(self):
         url = "https://api.steampowered.com/ISteamApps/GetAppList/v0002/"
@@ -42,15 +52,40 @@ class steamdata(object):
         }
         if params['key'] != "" and params['steamid'] != "":
             r = requests.get(url, params=params)
-            return r.json()['playerstats']
+            return r.json()
 
-if __name__ == "__main__":
-    QCoreApplication.setApplicationName("Jippen")
-    QCoreApplication.setOrganizationDomain("bullshit.website")
-    QCoreApplication.setApplicationName("Steam Achievement Stats Watcher")
+    def updater(self):
+        self.load_games()
+        counter = 0
+        for appid, name in self.allgames.items():
+            try:
+                if str(appid) not in self.data.keys():
+                    counter = counter + 1
+                    print(f"{appid} - {name}")
+                    data = self.get_game_stats(appid)
+                    self.updater_add_game(appid, data)
+                    # Safety save every 10 games
+                    if counter % 10 == 0:
+                        self.save()
+            except requests.exceptions.ConnectionError:
+                time.sleep(10)
+        self.save()
 
-    sd = steamdata()
-    games = list(sd.usergames.values())
-    print(games[0])
-    print(len(games))
-    print(sd.get_game_stats(398850)['stats'])
+    def updater_add_game(self, appid, game):
+        data = {}
+        data['hasStats'] = False
+        data['hasAchievementStats'] = False
+        if 'playerstats' in game.keys():
+            if 'stats' in game['playerstats'].keys():
+                # Return true if not an empty dict
+                contents = bool(len(game['playerstats']['stats']))
+                data['hasStats'] = contents
+            if 'achievements' in game['playerstats'].keys():
+                # Return true if not an empty dict
+                contents = bool(len(game['playerstats']['achievements']))
+                data['hasAchievementStats'] = contents
+        self.data[appid] = data
+
+    def save(self):
+        with open(self.__datafile, "w") as fh:
+            json.dump(self.data, fh, indent=2)

@@ -15,11 +15,29 @@ class Ui_AddGame(ui.Ui_AddGame):
         self.dialog = AddGame
         # Load data
         settings = QSettings()
-        sd = steam_achievement_stats_watcher.steamdata()
-        sd.load_games()
+        self.sd = steam_achievement_stats_watcher.steamdata()
+        self.sd.load_games()
         # Setup game list
         self.games.setSortingEnabled(True)
-        for appid, game in sd.usergames.items():
+        for appid, game in self.sd.usergames.items():
             self.games.addItem(game)
-        # self.games.sortItems()
+        self.games.currentItemChanged.connect(self.list_game_stats)
         self.games.show()
+
+    def list_game_stats(self):
+        self.stats.addItem("Loading...")
+        self.stats.show()
+        current_game = self.games.currentItem()
+        try:
+            stats = self.sd.get_game_stats(current_game.text())
+            print(stats)
+            self.stats.clear()
+            for stat in stats:
+                item = QListWidgetItem(stat['name'])
+                item.setSelected(True)
+                self.stats.addItem(item)
+            self.stats.show()
+        except KeyError:
+            self.stats.clear()
+            self.stats.addItem(f"No stats available for {current_game.text()}")
+            self.stats.show()
