@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>511</width>
-    <height>248</height>
+    <width>451</width>
+    <height>479</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,33 +20,8 @@
    <iconset>
     <normaloff>icon.ico</normaloff>icon.ico</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget" native="true">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>505</width>
-     <height>240</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>158</width>
-      <height>25</height>
-     </rect>
-    </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <property name="sizeConstraint">
       <enum>QLayout::SetFixedSize</enum>
@@ -66,34 +41,11 @@
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QTreeView" name="treeView">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>30</y>
-      <width>501</width>
-      <height>211</height>
-     </rect>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QStatusBar" name="statusbar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>3</width>
-     <height>18</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-  </widget>
+   </item>
+   <item>
+    <widget class="QTreeView" name="treeView"/>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
