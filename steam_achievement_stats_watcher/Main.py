@@ -44,30 +44,27 @@ class Ui_Main(ui.Ui_Main):
         self.refresh()
 
     def refresh(self):
-        print("REFRESH")
+        try:
+            self.refresh_games()
+        except:
+            pass
+
+    def refresh_games(self):
+        print("REFRESH_GAMES")
         self.data = []
         settings = QSettings()
-        print(1)
         # Disable add games button without api key & steam ID configured
         self.AddGameButton.setEnabled(
             settings.value('ApiKey', type=str) != "" and
             settings.value('SteamID64', type=str) != ""
         )
-        print(2)
         self.stats.clear()
-        print(3)
         # Refresh stats
         counter = 0
-        print(4)
         self.stats.setRowCount(10000)
-        print(5)
         gamelist = settings.value('WatchedGames', type=list)
-        print("Got game list:")
-        print(gamelist)
         for game in gamelist:
-            print(f">> {game}")
             self.get_game_data(game)
-        print(f"6 --> {counter}")
 
         self.stats.setRowCount(len(self.data))
         counter = 0
@@ -85,7 +82,6 @@ class Ui_Main(ui.Ui_Main):
         if appid == '':
             return
         try:
-            print("try")
             data = []
             print(appid)
             stats = self.dialog.sd.get_game_stats(appid)
