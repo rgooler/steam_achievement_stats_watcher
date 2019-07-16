@@ -10,19 +10,19 @@
     <x>0</x>
     <y>0</y>
     <width>329</width>
-    <height>131</height>
+    <height>151</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>329</width>
-    <height>131</height>
+    <height>151</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>329</width>
-    <height>131</height>
+    <height>151</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -98,10 +98,20 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="1">
+   <item row="5" column="1">
     <widget class="QDialogButtonBox" name="configButtonBox">
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="watchedGames"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="watchedGamesLabel">
+     <property name="text">
+      <string>Watched Games</string>
      </property>
     </widget>
    </item>

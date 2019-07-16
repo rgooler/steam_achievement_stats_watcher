@@ -2,19 +2,21 @@
 
 # Form implementation generated from reading ui file 'ui/Ui_Configuration.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Configuration(object):
     def setupUi(self, Configuration):
         Configuration.setObjectName("Configuration")
         Configuration.setWindowModality(QtCore.Qt.WindowModal)
-        Configuration.resize(329, 131)
-        Configuration.setMinimumSize(QtCore.QSize(329, 131))
-        Configuration.setMaximumSize(QtCore.QSize(329, 131))
+        Configuration.resize(329, 151)
+        Configuration.setMinimumSize(QtCore.QSize(329, 151))
+        Configuration.setMaximumSize(QtCore.QSize(329, 151))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Configuration.setWindowIcon(icon)
@@ -50,7 +52,13 @@ class Ui_Configuration(object):
         self.configButtonBox = QtWidgets.QDialogButtonBox(Configuration)
         self.configButtonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
         self.configButtonBox.setObjectName("configButtonBox")
-        self.formLayout_2.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.configButtonBox)
+        self.formLayout_2.setWidget(5, QtWidgets.QFormLayout.FieldRole, self.configButtonBox)
+        self.watchedGames = QtWidgets.QLineEdit(Configuration)
+        self.watchedGames.setObjectName("watchedGames")
+        self.formLayout_2.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.watchedGames)
+        self.watchedGamesLabel = QtWidgets.QLabel(Configuration)
+        self.watchedGamesLabel.setObjectName("watchedGamesLabel")
+        self.formLayout_2.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.watchedGamesLabel)
 
         self.retranslateUi(Configuration)
         QtCore.QMetaObject.connectSlotsByName(Configuration)
@@ -63,4 +71,4 @@ class Ui_Configuration(object):
         self.UpdateIntervalLabel.setToolTip(_translate("Configuration", "<html><head/><body><p>This value is how many seconds the app will wait between API calls to update steam stats. Too fast may result in temporary API Blocking.</p></body></html>"))
         self.UpdateIntervalLabel.setText(_translate("Configuration", "Update Interval"))
         self.UpdateInterval.setSuffix(_translate("Configuration", " seconds"))
-
+        self.watchedGamesLabel.setText(_translate("Configuration", "Watched Games"))

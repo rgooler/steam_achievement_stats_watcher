@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'ui/Ui_AddGame.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_AddGame(object):
     def setupUi(self, AddGame):
@@ -28,11 +30,19 @@ class Ui_AddGame(object):
         self.games.setAlternatingRowColors(False)
         self.games.setResizeMode(QtWidgets.QListView.Adjust)
         self.games.setObjectName("games")
-        self.stats = QtWidgets.QListWidget(self.splitter)
+        self.stats = QtWidgets.QTableWidget(self.splitter)
         self.stats.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.stats.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.stats.setAlternatingRowColors(True)
+        self.stats.setSelectionMode(QtWidgets.QAbstractItemView.NoSelection)
+        self.stats.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.stats.setColumnCount(2)
         self.stats.setObjectName("stats")
+        self.stats.setRowCount(0)
+        self.stats.horizontalHeader().setVisible(False)
+        self.stats.horizontalHeader().setStretchLastSection(True)
+        self.stats.verticalHeader().setVisible(False)
+        self.stats.verticalHeader().setHighlightSections(False)
         self.verticalLayout_2.addWidget(self.splitter)
         self.pushButton = QtWidgets.QPushButton(AddGame)
         self.pushButton.setObjectName("pushButton")
@@ -44,5 +54,5 @@ class Ui_AddGame(object):
     def retranslateUi(self, AddGame):
         _translate = QtCore.QCoreApplication.translate
         AddGame.setWindowTitle(_translate("AddGame", "Add Game"))
+        self.stats.setSortingEnabled(True)
         self.pushButton.setText(_translate("AddGame", "Add Games"))
-

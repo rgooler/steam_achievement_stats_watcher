@@ -17,6 +17,7 @@ class Ui_Configuration(ui.Ui_Configuration):
         self.ApiKey.setText(settings.value('ApiKey', type=str))
         self.SteamID64.setText(settings.value('SteamID64', type=str))
         self.UpdateInterval.setProperty("value", settings.value('UpdateInterval', type=int, defaultValue=15))
+        self.watchedGames.setText(",".join(settings.value('WatchedGames', type=list, defaultValue=[])))
         self.configButtonBox.accepted.connect(self.accept)
         self.configButtonBox.rejected.connect(Configuration.reject)
 
@@ -25,5 +26,6 @@ class Ui_Configuration(ui.Ui_Configuration):
         settings.setValue('ApiKey', self.ApiKey.text())
         settings.setValue('SteamID64', self.SteamID64.text())
         settings.setValue('UpdateInterval', self.UpdateInterval.value())
+        settings.setValue('WatchedGames', self.watchedGames.text().split(','))
         settings.sync()
         self.dialog.accept()
