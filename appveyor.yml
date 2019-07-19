@@ -38,7 +38,7 @@ deploy:
     release: draft-v$(appveyor_build_version)
     auth_token:
       secure: CX6oVGywKQDDate+0y9tZ2OEmKtxBeKuf/7AMCXmFkLlQpREQt3tihO3oGdzChUU
-    artifact: "*.zip"
+    artifact: "$env:PROJECT_NAME-$env:APPVEYOR_BUILD_VERSION-windows-$env:ARCH.zip"
     draft: true
     prerelease: false
     on:
@@ -52,7 +52,7 @@ deploy:
     release: v$(appveyor_build_version)
     auth_token:
       secure: CX6oVGywKQDDate+0y9tZ2OEmKtxBeKuf/7AMCXmFkLlQpREQt3tihO3oGdzChUU
-    artifact: "*.zip"
+    artifact: "$env:PROJECT_NAME-$env:APPVEYOR_BUILD_VERSION-windows-$env:ARCH.zip"
     draft: false
     prerelease: true
     on:
